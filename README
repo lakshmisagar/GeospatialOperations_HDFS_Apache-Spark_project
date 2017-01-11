@@ -1,0 +1,25 @@
+Group18
+
+You do not need to do any pre-processing since we already have the point and rectangle files loaded.
+Incase you need to look at the procedure to do that, please look at the CreateCube and ProcessFile classes.
+The ProcessFile requires the input.csv file to be in the source directory
+Execute the CreateCube to create the envelopes
+cubes.txt and 1-31.txt files represent the envelopes and points(for each day) respectively.
+
+GetCount:
+This is the main driver class that performs all the operations namely:
+1. Loading the RectangleRDD and the PointRdd map for each day.
+2. It then performs the SpatialJoinUsingIndex join on every <PointRDD,Envelope> map and stores the count of the point lying in that cube.
+3. Once the <cube,count> map is ready, this is used to calculate the G value.
+4. The FindNeighbor class is responsible to fine the neighbors of the given coordinate.
+5. Finally, the result is sorted in the descending order, and top 50 results are output.
+
+Build:
+perform a 
+1. mvn clean compile package
+This creates a jar with dependency tag in the target directory.
+
+The main class is main.GetCount. Hence the final command will be
+./spark-submit --class main.GetCount group18_phase3.jar <pathToInput> <pathToOutput>
+
+
