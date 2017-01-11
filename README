@@ -1,4 +1,4 @@
-Group18
+DDS Project
 
 You do not need to do any pre-processing since we already have the point and rectangle files loaded.
 Incase you need to look at the procedure to do that, please look at the CreateCube and ProcessFile classes.
